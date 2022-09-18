@@ -1,6 +1,13 @@
+import model.Answer;
+import model.Question;
+import model.User;
+import service.UserService;
+import service.impl.UserServiceImpl;
+
 import java.util.*;
 
-public class Main {
+public class Runnable {
+
     public static Scanner scanner = new Scanner(System.in);
     public static List<User> userList = new LinkedList<>();
     public static List<Question> physicsQuestionList = new LinkedList<>();
@@ -8,6 +15,8 @@ public class Main {
     public static User currentUser;
 
     public static void main(String[] args) {
+
+        initUsers();
 
         userList.add(new User("Giyosbek", "giyosbek@mail.ru", "123", "admin"));
         userList.add(new User("Botir", "botir@mail.ru", "123", "user"));
@@ -27,7 +36,7 @@ public class Main {
                     login();
                     break;
                 case 2:
-                    signIn();
+                    register();
                     break;
                 case 0:
                     a = false;
@@ -36,8 +45,16 @@ public class Main {
         }
     }
 
+    private static void initUsers() {
+        UserService userService = new UserServiceImpl();
+
+        /// TODO: 9/18/2022 Yangi user register qilishda shu service ishlatilsin
+        userService.create(new User());
+
+    }
+
     // Ro'yxatdan o'tish
-    private static void signIn() {
+    private static void register() {
         scanner = new Scanner(System.in);
         System.out.print("Name: ");
         String name = scanner.nextLine();
