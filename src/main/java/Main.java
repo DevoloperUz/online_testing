@@ -15,6 +15,8 @@ public class Main {
         physicsQuestionList.add(new Question(1, "Assalommu aleykum", physicsAnswerList, true, "A"));
 
         physicsAnswerList.add(new Answer("1", "A, B, C, D", true));
+        System.out.println(physicsAnswerList);
+        System.out.println(physicsQuestionList);
 
         boolean a = true;
         while (a) {
