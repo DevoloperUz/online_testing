@@ -1,3 +1,5 @@
+package model;
+
 import lombok.*;
 
 import java.util.List;
@@ -7,10 +9,8 @@ import java.util.List;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class Subject {
+public class Question {
     private Integer id;
-    private String name;
-    private List<Question> questions;
-    private Integer score;
+    private String text;
+    private Subject subject;
 }
