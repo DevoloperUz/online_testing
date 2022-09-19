@@ -1,31 +1,25 @@
 import model.Answer;
 import model.Question;
 import model.User;
+import model.enums.RoleEnum;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
 import java.util.*;
 
 public class Runnable {
-
     public static Scanner scanner = new Scanner(System.in);
-    public static List<User> userList = new LinkedList<>();
-    public static List<Question> physicsQuestionList = new LinkedList<>();
-    public static List<Answer> physicsAnswerList = new LinkedList<>();
     public static User currentUser;
+    public UserR
 
     public static void main(String[] args) {
 
-        initUsers();
-
-        userList.add(new User("Giyosbek", "giyosbek@mail.ru", "123", "admin"));
-        userList.add(new User("Botir", "botir@mail.ru", "123", "user"));
-
-        physicsQuestionList.add(new Question(1, "Assalommu aleykum", physicsAnswerList, true, "A"));
-
-        physicsAnswerList.add(new Answer("1", "A, B, C, D", true));
-        System.out.println(physicsAnswerList);
-        System.out.println(physicsQuestionList);
+        UserService userService = new UserServiceImpl();
+        userService.create(new User("G'iyosbek", "giyos@mail.ru", "123", RoleEnum.ADMIN));
+        userService.create(new User("Botir", "botir@mail.ru", "123", RoleEnum.STUDENT));
+        userService.create(new User("Bobur", "bobur@mail.ru", "123", RoleEnum.TEACHER));
+        userService.create(new User("Muhiddin", "muhiddin@mail.ru", "123", RoleEnum.MODERATOR));
+        userService.create(new User("Hamza", "hamza@mail.ru", "123", RoleEnum.DIRECTOR));
 
         boolean a = true;
         while (a) {
@@ -44,17 +38,10 @@ public class Runnable {
             }
         }
     }
-
-    private static void initUsers() {
-        UserService userService = new UserServiceImpl();
-
-        /// TODO: 9/18/2022 Yangi user register qilishda shu service ishlatilsin
-        userService.create(new User());
-
-    }
-
     // Ro'yxatdan o'tish
     private static void register() {
+        UserService userService = new UserServiceImpl();
+
         scanner = new Scanner(System.in);
         System.out.print("Name: ");
         String name = scanner.nextLine();
@@ -62,12 +49,9 @@ public class Runnable {
         String email = scanner.nextLine();
         System.out.print("Password: ");
         String password = scanner.nextLine();
-        int count = 0;
-        Iterator<User> iterator = userList.iterator();
-        // yangi userni listga joylash?
 
+        userService.create(new User(name, email, password, RoleEnum.STUDENT));
     }
-
     // Kirish
     private static void login() {
         boolean a = true;
@@ -97,7 +81,6 @@ public class Runnable {
             a = false;
         }
     }
-
     // Menu
     private static void menu() {
         System.out.println("Hurmatli " + currentUser.getName() + " online test tizimiga xush kelibsiz!");
@@ -113,7 +96,7 @@ public class Runnable {
                         int n = scanner.nextInt();
                         switch (n) {
                             case 1:
-                                passTestPhysics();
+                                // passTestPhysics();
                                 break;
                             case 2:
                                // passTestProgramming();
@@ -124,7 +107,7 @@ public class Runnable {
                     }
                     break;
                 case 2:
-                    System.out.println("bala bla bla");
+                    System.out.println("bla bla bla");
                     //viewResults();
                     break;
                 case 0:
@@ -133,7 +116,4 @@ public class Runnable {
         }
     }
 
-    private static void passTestPhysics() {
-
-    }
 }

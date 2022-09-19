@@ -11,7 +11,7 @@ import service.UserService;
  * Time: 6:02 PM
  */
 public class UserServiceImpl implements UserService {
-    private UserRepository userRepository = new UserRepository();
+    public UserRepository userRepository = new UserRepository();
 
     @Override
     public Response create(User user) {
