@@ -15,10 +15,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Response create(User user) {
-        if (userRepository.existsByEmail(user.getEmail()))
+        if (userRepository.existsByEmail(user.getEmail())) {
             return new Response(false, "Such email already exists!");
-
-        return userRepository.create(user);
+        }
+        userRepository.create(user);
+        return null;
     }
 
     @Override

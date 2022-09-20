@@ -10,7 +10,7 @@ import rest.Response;
  */
 public interface UserService {
 
-    Response create(User user);
+    Object create(User user);
 
     Response findAll();
 

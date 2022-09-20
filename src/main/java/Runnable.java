@@ -2,6 +2,7 @@ import model.Answer;
 import model.Question;
 import model.User;
 import model.enums.RoleEnum;
+import repository.UserRepository;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
@@ -10,7 +11,7 @@ import java.util.*;
 public class Runnable {
     public static Scanner scanner = new Scanner(System.in);
     public static User currentUser;
-    public UserR
+    public UserRepository userRepository = new UserRepository();
 
     public static void main(String[] args) {
 
@@ -23,11 +24,11 @@ public class Runnable {
 
         boolean a = true;
         while (a) {
-            System.out.println(" ========== Welcome ========== \n 1. Login \n 2. Sign In \n 0. Exit");
+            System.out.println(" ========== Welcome ========== \n 1. Login \n 2. Register \n 0. Exit");
             int num = scanner.nextInt();
             switch (num) {
                 case 1:
-                    login();
+                    //login();
                     break;
                 case 2:
                     register();
@@ -53,13 +54,13 @@ public class Runnable {
         userService.create(new User(name, email, password, RoleEnum.STUDENT));
     }
     // Kirish
-    private static void login() {
+   /* private static void login() {
         boolean a = true;
         while (a) {
             scanner = new Scanner(System.in);
             System.out.print("Email: ");
             String email = scanner.nextLine();
-            for (User user : userList) {
+            for (User user : userRe) {
                 if (user.getEmail().equals(email)) {
                     currentUser = user;
                     boolean b = true;
@@ -80,7 +81,7 @@ public class Runnable {
             }
             a = false;
         }
-    }
+    }*/
     // Menu
     private static void menu() {
         System.out.println("Hurmatli " + currentUser.getName() + " online test tizimiga xush kelibsiz!");
