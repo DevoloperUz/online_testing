@@ -9,12 +9,6 @@ import rest.Response;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Author: khamza@nightwell-logistics.com
- * Date: 9/18/2022
- * Time: 6:03 PM
- */
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

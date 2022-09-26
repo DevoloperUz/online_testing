@@ -4,12 +4,6 @@ import lombok.*;
 
 import java.util.List;
 
-/**
- * Author: khamza@nightwell-logistics.com
- * Date: 9/18/2022
- * Time: 5:57 PM
- */
-
 @Getter
 @Setter
 @ToString

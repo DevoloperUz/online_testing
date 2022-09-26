@@ -5,11 +5,6 @@ import repository.UserRepository;
 import rest.Response;
 import service.UserService;
 
-/**
- * Author: khamza@nightwell-logistics.com
- * Date: 9/18/2022
- * Time: 6:02 PM
- */
 public class UserServiceImpl implements UserService {
     public UserRepository userRepository = new UserRepository();
 

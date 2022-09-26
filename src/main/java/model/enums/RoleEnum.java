@@ -1,10 +1,5 @@
 package model.enums;
 
-/**
- * Author: khamza@nightwell-logistics.com
- * Date: 9/18/2022
- * Time: 5:44 PM
- */
 public enum RoleEnum {
     ADMIN("Admin role vazifasi - ..."),
     DIRECTOR("Director role vazifasi - ..."),
